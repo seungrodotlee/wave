@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Wave</title>
+  <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/notosanskr.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/nanummyeongjo.css">
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="main.js"></script>
+</head>
+
+<body>
+  <section id="sea-container" class="container">
+    <section id="sea">
+      <section id="sea-top">
+        <span id="guide-help">화면을 더블클릭해보세요</span>
+        <button id="skip-guide">건너뛰기</button>
+        <article class="guide first">
+          <span class="guide-each">안</span>
+          <span class="guide-each">녕</span>
+          <span class="guide-each">하</span>
+          <span class="guide-each">세</span>
+          <span class="guide-each">요</span>
+        </article>
+        <article class="guide second no-display">
+          <span class="guide-each no-display">Wave는&nbsp;</span>
+          <span class="guide-each no-display">당신의&nbsp;</span>
+          <span class="guide-each no-display">고민을</span><br>
+          <span class="guide-each no-display">날려버릴&nbsp;</span>
+          <span class="guide-each no-display">공간이예요</span>
+        </article>
+        <article class="guide third no-display">
+          화면을 천천히 스크롤하면서 구경하다보면<br>당신의 고민을 해결해 줄 선물이 기다리고 있을거예요
+        </article>
+        <article class="guide fourth no-display">
+          <span class="guide-each no-display">자&nbsp;</span>
+          <span class="guide-each no-display">그</span>
+          <span class="guide-each no-display">럼</span>
+          <span class="guide-each no-display">,&nbsp;</span>
+          <span class="guide-each no-display">오</span>
+          <span class="guide-each no-display">늘&nbsp;</span>
+          <span class="guide-each no-display">어</span>
+          <span class="guide-each no-display">떤&nbsp;</span>
+          <span class="guide-each no-display">고</span>
+          <span class="guide-each no-display">민</span>
+          <span class="guide-each no-display">을</span><br>
+          <span class="guide-each no-display">날</span>
+          <span class="guide-each no-display">려</span>
+          <span class="guide-each no-display">버</span>
+          <span class="guide-each no-display">릴</span>
+          <span class="guide-each no-display">지&nbsp;</span>
+          <span class="guide-each no-display">정</span>
+          <span class="guide-each no-display">하</span>
+          <span class="guide-each no-display">세</span>
+          <span class="guide-each no-display">요</span><br>
+          <span class="guide-each no-display">그</span>
+          <span class="guide-each no-display">리</span>
+          <span class="guide-each no-display">고</span>
+          <span class="guide-each no-display">,&nbsp;</span>
+          <span class="guide-each no-display">출</span>
+          <span class="guide-each no-display">발</span>
+          <span class="guide-each no-display">합</span>
+          <span class="guide-each no-display">시</span>
+          <span class="guide-each no-display">다</span>
+        </article>
+        <div id="sun"></div>
+        <div class="boat-wrap">
+          <div class="boat">
+            <div class="boat-sail-front"></div>
+            <div class="boat-sail-back"></div>
+            <div class="boat-body"></div>
+          </div>
+          <span class="boat-foam"></span>
+        </div>
+
+      </section>
+    </section>
+  </section>
+  <section id="landing" class="container">
+    <h1 id="title" class="sandText">Wave</h1>
+    <div class="wave no-display"></div>
+    <div class="wave no-display"></div>
+    <div class="wave no-display"></div>
+  </section>
+  <section class="container">
+    <article id="introduction" class="sandText">
+      걱정은 내일의 슬픔을 덜어 주는 것이 아니라 오늘의 힘을 앗아 갈 뿐이다.<br> by 코리 텐 붐
+    </article>
+  </section>
+  <section class="container">
+    <section class="maskParent">
+      <img id="sad" class="masked" src="img/sad.png">
+    </section>
+  </section>
+  <section class="container">
+    <section class="maskParent">
+      <img id="smile" class="masked" src="img/smile.png">
+    </section>
+  </section>
+  <section class="container textContainer">
+    <textarea id="text" placeholder="마음속에 담아두었던 고민을 뱉으세요"></textarea>
+    <div id="diary-help">
+      <div id="diary-help-item-wrap">
+        <div class="diary-help-item">
+          다시 한번 인사드려요.<br> 안녕하세요!
+        </div>
+        <div class="diary-help-item">
+          어떤 생각을 비울 지는 다 정하셨나요?
+        </div>
+        <div class="diary-help-item">
+          이제부터는 당신이 버리기로 마음먹은<br> 그 생각들을 적어볼거예요
+        </div>
+        <div class="diary-help-item">
+          그리고 다 적었다면, 화면을 아래로 당겨보세요!<br> 준비가 되셨다면, 마지막으로 더블클릭 해주세요
+        </div>
+      </div>
+      <span id="diary-help-help">
+        이 박스를 더블클릭하세요
+      </span>
+      <button id="skip-diary-help">건너뛰기</button>
+    </div>
+    <div id="trash-can">
+      잠시만 기다리세요
+    </div>
+    <div id="deep-ocean">
+      <span class="end-title first">
+        당신의 걱정을 깊은 바다로 던져버렸습니다.
+      </span>
+      <span class="end-title second">
+        깊은 바다에 빠진 것은 이제 찾을 수 없으니,<br>
+        그만 없었던 셈 치고 잊으세요.
+      </span>
+      <span class="end-title third">
+        이 창을 닫기 전에, 마지막으로 해줄 말이 있어요!
+      </span>
+      <span class="end-title fourth">
+        
+      </span>
+      <h1 class="end-title fifth">
+        이제 창을 닫고, 행복한 날을 만들어가세요
+      </h1>
+      <div id="current-step">
+        <div id="current-step-slider"></div>
+      </div>
+      <div id="particles-js"></div>
+    </div>
+  </section>
+  <div id="cursor">
+    <span id="default-cursor-text">CLICK</span>
+  </div>
+  <script src="library/particles/particles.min.js"></script>
+</body>
+
+</html>
