@@ -205,14 +205,26 @@ button {
   position: relative;
   height: 100%;
   width: 100%;
-  background-color: rgba(157, 214, 255, 0.7);
+  background: #293040;
+  transition: all .5s;
+}
+
+#sun {
+  position: absolute;
+  height: 300px;
+  width: 300px;
+  border-radius: 50%;
+  background: linear-gradient(to right, #2C485A, #4C7A87);
+  top: 35%;
+  left: 70%;
+  transform: translateX(-50%) translateY(-50%);
 }
 
 .boat-body {
   position: relative;
   height: 0;
   width: 300px;
-  border-top: 30px solid #a584c1;
+  border-top: 30px solid #A3CAD4;
   border-left: 20px solid transparent;
   border-right: 20px solid transparent;
   border-bottom: 0;
@@ -301,22 +313,12 @@ button {
   transform: translateX(-50%);
 }
 
-#sun {
-  position: absolute;
-  height: 300px;
-  width: 300px;
-  border-radius: 50%;
-  background: linear-gradient(to right, #69b2cc, #8ecae0);
-  top: 35%;
-  left: 70%;
-  transform: translateX(-50%) translateY(-50%);
-}
-
 #sea-container {
   height: 300%;
   margin-top: 0;
   z-index: 3;
   transition: all 3s;
+  overflow: hidden;
 }
 
 #sea-top {
@@ -324,6 +326,7 @@ button {
   height: 100vh;
   pointer-events: all;
   overflow: hidden;
+  z-index: 2;
 }
 
 #sea-top * {
@@ -716,4 +719,14 @@ button {
   width: 16px !important;
   top: -8px !important;
   left: -8px !important;
+}
+
+#sea-background {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  background: #C2DBE6;
 }

@@ -23,7 +23,65 @@ wave.data = {
     "과거는 잊어버리고 다른 일에 몰두하자. 이것이 고민의 해결이다.<br>by 잭 템프시",
     "내일 일은 내일이 염려할 것이요, 한 날의 괴로움은 그 날로 족하니라<br>마태복음"
   ],
-  deepOceanStep: 0
+  deepOceanStep: 0,
+  hour: new Date().getHours(),
+  colorSet: {
+    dawn: {
+      back: "#293040",
+      sun: "linear-gradient(to right, #2C485A, #4C7A87)",
+      boat: "#A3CAD4"
+    },
+    morning: {
+      back: "linear-gradient(to bottom, #b9b4d4, #52c2eb)",
+      sun: "linear-gradient(to right, #cb9393, #cebb9d)",
+      boat: "#a584c1"
+    },
+    lunch: {
+      back: "rgba(157, 214, 255, 0.7)",
+      sun: "linear-gradient(to right, #69b2cc, #8ecae0)",
+      boat: "#a584c1"
+    },
+    afternoon: {
+      back: "linear-gradient(to bottom, #fe6932, #f9ffeb)",
+      sun: "linear-gradient(to right, #5A8F29, #aabe67)",
+      boat: "#2E5F7D"
+    },
+    dinner: {
+      back: "linear-gradient(to bottom, #FE326D, #FFECF2)",
+      sun: "linear-gradient(to right, #ff9445, rgba(242, 183, 115, 0.48))",
+      boat: "#246389"
+    },
+    night: {
+      back: "#493e86",
+      sun: "linear-gradient(to right, #311F62, #565eba)",
+      boat: "#E8817F"
+    }
+  }
+}
+
+wave.method = {
+  setTimeColor: function (time) {
+    console.log(time);
+    if (time <= 6 || time >= 24) {
+      wave.method.setTimeColorPack(wave.data.colorSet.dawn);
+    } else if (time > 6 && time <= 10) {
+      wave.method.setTimeColorPack(wave.data.colorSet.morning);
+    } else if (time > 10 && time <= 13) {
+      wave.method.setTimeColorPack(wave.data.colorSet.lunch);
+    } else if (time > 13 && time <= 17) {
+      wave.method.setTimeColorPack(wave.data.colorSet.afternoon);
+    } else if (time > 17 && time <= 20) {
+      wave.method.setTimeColorPack(wave.data.colorSet.dinner);
+    } else if (time > 20 && time < 24) {
+      wave.method.setTimeColorPack(wave.data.colorSet.night);
+    }
+  },
+  setTimeColorPack: function (colorPack) {
+    console.log(wave.element.sea);
+    wave.element.sea.css("background", colorPack.back);
+    wave.element.sun.css("background", colorPack.sun);
+    wave.element.boatBody.css("border-top", "30px solid " + colorPack.boat);
+  }
 }
 
 $(window).ready(function () {
@@ -32,7 +90,11 @@ $(window).ready(function () {
     cursor: $("#cursor"),
     cursorText: $("#default-cursor-text"),
     introText: $("#introduction"),
+    sea: $("#sea"),
     seaTop: $("#sea-top"),
+    seaBackground: $("#sea-background"),
+    sun: $("#sun"),
+    boatBody: $(".boat-body"),
     guideHelp: $("#guide-help"),
     guideSkip: $("#skip-guide"),
     seaContainer: $("#sea-container"),
@@ -46,6 +108,10 @@ $(window).ready(function () {
     deepOcean: $("#deep-ocean"),
     oceanSlider: $("#current-step-slider")
   }
+
+  wave.method.setTimeColor(wave.data.hour);
+
+  wave.element.seaBackground.hide();
 
   $(window).scrollTop(0);
   wave.element.body.css("overflow-y", "hidden");
@@ -66,6 +132,7 @@ $(window).ready(function () {
       wave.element.guideHelp.text("Go!");
     } else if (wave.data.introStep == 3) {
       wave.element.seaContainer.addClass("escape-sea");
+      wave.element.seaBackground.fadeIn(1000);
       wave.element.wave.removeClass("no-display");
       wave.element.body.css("overflow-y", "visible");
       wave.element.cursorText.html("SCROLL");
@@ -109,6 +176,7 @@ $(window).ready(function () {
     wave.element.wave.removeClass("no-display");
     wave.element.body.css("overflow-y", "visible");
     wave.element.cursorText.html("SCROLL");
+    wave.element.seaBackground.fadeIn(1000);
   })
 
   $("#sad").hover(function () {
